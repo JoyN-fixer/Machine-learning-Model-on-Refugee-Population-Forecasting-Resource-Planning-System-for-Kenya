@@ -5,6 +5,22 @@ import torch
 import torch.nn as nn
 import joblib
 
+import pickle
+import torch
+
+# --------------------------------------------------
+# Load preprocessing objects
+# --------------------------------------------------
+
+with open("label_encoders.pkl", "rb") as f:
+    label_encoders = pickle.load(f)
+
+with open("scaler.pkl", "rb") as f:
+    scaler = pickle.load(f)
+
+with open("model_config.pkl", "rb") as f:
+    model_config = pickle.load(f)
+
 # =====================================================
 # Fix 3: Explicitly define CPU support for Cloud environments
 # =====================================================
