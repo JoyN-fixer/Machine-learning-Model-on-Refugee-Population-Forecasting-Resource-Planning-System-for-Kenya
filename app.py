@@ -103,9 +103,7 @@ def load_assets():
     # Map model weights explicitly to CPU
     state_dict = torch.load("ft_transformer_model.pth", map_location=device)
     
-    # -----------------------------------------------------------------
-    # FIX: Dynamically detect correct depth directly from saved weights keys!
-    # -----------------------------------------------------------------
+    # Dynamically detect correct depth directly from saved weights keys to prevent mismatch errors
     max_layer_idx = -1
     for key in state_dict.keys():
         if key.startswith("transformer.layers."):
@@ -124,7 +122,7 @@ def load_assets():
         cat_cardinalities=model_config['cat_cardinalities'],
         num_features=model_config['num_features'],
         embed_dim=model_config['embed_dim'],
-        depth=detected_depth, # <--- Uses self-corrected depth (2) instead of the config mismatch (3)
+        depth=detected_depth, 
         heads=model_config['heads'],
         attn_dropout=attn_dropout,
         ff_dropout=ff_dropout
