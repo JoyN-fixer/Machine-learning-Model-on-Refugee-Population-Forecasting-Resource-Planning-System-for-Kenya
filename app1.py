@@ -585,5 +585,9 @@ with col2:
 
         if age_range == "all":
             st.warning(
-                "You selected the 'all' age band. Population and resource totals for 'all' are "
-                "aggregate figures already present in the source d
+        "You selected the 'all' age band. Population and resource totals for 'all' are "
+        "aggregate figures already present in the source data (not a sum you need to compute), "
+        "and cannot be broken into age-specific kit types. "
+        "Re-run the forecast separately for each age band to obtain detailed"
+        "resource planning recommendations."
+        )
