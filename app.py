@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #Import libraries.
 # Import Streamlit for building the interactive web dashboard.
 # PyTorch is used to load and run the deep learning FT-Transformer model.
